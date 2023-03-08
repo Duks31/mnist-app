@@ -1,4 +1,7 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:mnist_app/dl_model/classifier.dart';
 
 class UploadImage extends StatefulWidget {
   const UploadImage({super.key});
@@ -8,13 +11,27 @@ class UploadImage extends StatefulWidget {
 }
 
 class _UploadImageState extends State<UploadImage> {
+  Classifier classifier = Classifier();
+  late File imageFile;
+  int digit = -1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.black,
-        onPressed: null,
+        onPressed: () async {
+          final result = await FilePicker.platform.pickFiles(
+            type: FileType.custom,
+            allowedExtensions: ['jpg', 'png'],
+          );
+          if (result != null) {
+            imageFile = await File(result.files.single.path!);
+            digit = await classifier.classifyImage(imageFile);
+            setState(() {});
+          }
+        },
         child: Icon(Icons.camera_alt_outlined),
       ),
       appBar: AppBar(
@@ -40,6 +57,11 @@ class _UploadImageState extends State<UploadImage> {
               decoration: BoxDecoration(
                 color: Colors.white,
                 border: Border.all(color: Colors.black, width: 2.0),
+                image: DecorationImage(
+                  image: digit == -1
+                      ? AssetImage("assets/white_bg.jfif") as ImageProvider
+                      : FileImage(imageFile),
+                ),
               ),
             ),
             SizedBox(height: 45),
@@ -51,7 +73,7 @@ class _UploadImageState extends State<UploadImage> {
               height: 20,
             ),
             Text(
-              "5",
+              digit == -1 ? "" : "$digit",
               style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
             ),
           ],
@@ -60,3 +82,4 @@ class _UploadImageState extends State<UploadImage> {
     );
   }
 }
+
