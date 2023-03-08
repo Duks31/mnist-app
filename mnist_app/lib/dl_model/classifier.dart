@@ -1,5 +1,7 @@
 import 'dart:io' as io;
 import 'dart:typed_data';
+import 'dart:ui' as ui;
+import 'package:flutter/material.dart';
 import 'package:image/image.dart' as img;
 import 'package:tflite_flutter/tflite_flutter.dart';
 
@@ -9,15 +11,24 @@ class Classifier {
   classifyImage(File) async {
     // getting the file to Unint8
     var file = io.File(File.path);
-    img.Image? imageTemp =  img.decodeImage(file.readAsBytesSync());
-    img.Image resiezedImg =  img.copyResize(imageTemp!, height: 28, width: 28);
+    img.Image? imageTemp = img.decodeImage(file.readAsBytesSync());
+    img.Image resiezedImg = img.copyResize(imageTemp!, height: 28, width: 28);
     var imgBytes = resiezedImg.getBytes();
     var imgAsList = imgBytes.buffer.asUint8List();
+
     return getPred(imgAsList);
   }
 
+  classifyDrawing(List<Offset> points) async {
+    final picture = toPicture(points);
+    final image = await picture.toImage(28, 28);
+    ByteData? imgBytes = await image.toByteData();
+    var imgAsList = imgBytes?.buffer.asUint8List();
+
+    return getPred(imgAsList!);
+  }
+
   Future<int> getPred(Uint8List imgAsList) async {
-    // ignore: deprecated_member_use
     List resultBytes = List.filled(28 * 28, null, growable: false);
 
     int index = 0;
@@ -32,7 +43,6 @@ class Classifier {
     }
 
     var input = resultBytes.reshape([1, 28, 28, 1]);
-    // ignore: deprecated_member_use
     var output = List.filled(1 * 10, null, growable: false).reshape([1, 10]);
 
     InterpreterOptions interpreterOptions = InterpreterOptions();
@@ -55,6 +65,30 @@ class Classifier {
       }
     }
     return digitPred;
-      }
+  }
 }
 
+ui.Picture toPicture(List<Offset> points) {
+  final _whitePaint = Paint()
+    ..strokeCap = StrokeCap.round
+    ..color = Colors.white
+    ..strokeWidth = 16;
+
+  final _bgPaint = Paint()..color = Colors.black;
+  final _canvasCullRect = Rect.fromPoints(
+    Offset(0, 0),
+    Offset(28.0, 28.0),
+  );
+  final recorder = ui.PictureRecorder();
+  final canvas = Canvas(recorder, _canvasCullRect)..scale(28 / 300);
+
+  canvas.drawRRect(const Rect.fromLTWH(0, 0, 28, 28) as ui.RRect, _bgPaint);
+
+  for (int i = 0; i < points.length - 1; i++) {
+    if (points[i] != null && points[i + 1] != null) {
+      canvas.drawLine(points[i], points[i + 1], _whitePaint);
+    }
+  }
+
+  return recorder.endRecording();
+}
