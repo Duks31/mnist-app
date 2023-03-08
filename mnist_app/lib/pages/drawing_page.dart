@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mnist_app/dl_model/classifier.dart';
-import 'package:mnist_app/dl_model/classifier.dart';
 
 class DrawPage extends StatefulWidget {
   const DrawPage({super.key});

@@ -92,3 +92,10 @@ ui.Picture toPicture(List<Offset> points) {
 
   return recorder.endRecording();
 }
+
+
+  // Obtain a Picture from a List of points
+  // This Picture can then be converted to something
+  // we can send to our model. Seems unnecessary to draw twice,
+  // but couldn't find a way to record while using CustomPainter,
+  // this is a future improvement to make.
