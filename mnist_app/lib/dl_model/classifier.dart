@@ -1,30 +1,23 @@
-import 'dart:io' as io;
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
-import 'package:image/image.dart' as img;
 import 'package:tflite_flutter/tflite_flutter.dart';
 
 class Classifier {
   Classifier();
 
-  classifyImage(File) async {
-    // getting the file to Unint8
-    var file = io.File(File.path);
-    img.Image? imageTemp = img.decodeImage(file.readAsBytesSync());
-    img.Image resiezedImg = img.copyResize(imageTemp!, height: 28, width: 28);
-    var imgBytes = resiezedImg.getBytes();
-    var imgAsList = imgBytes.buffer.asUint8List();
-
-    return getPred(imgAsList);
-  }
 
   classifyDrawing(List<Offset> points) async {
-    final picture = toPicture(points);
-    final image = await picture.toImage(28, 28);
-    ByteData? imgBytes = await image.toByteData();
+    // Takes img as a List of Points from Drawing and returns Integer
+    // of which digit it was (hopefully)!
+
+    // Ugly boilerplate to get it to Uint8List
+    final picture = toPicture(points); // convert List to Picture
+    final image = await picture.toImage(28, 28); // Picture to 28x28 Image
+    ByteData? imgBytes = await image.toByteData(); // Read this image
     var imgAsList = imgBytes?.buffer.asUint8List();
 
+    // Everything "important" is done in getPred
     return getPred(imgAsList!);
   }
 
@@ -52,7 +45,7 @@ class Classifier {
           options: interpreterOptions);
       interpreter.run(input, output);
     } catch (e) {
-      print("Error Loading Model");
+      // print("Error Loading Model");
     }
 
     double highesProb = 0;
@@ -82,7 +75,7 @@ ui.Picture toPicture(List<Offset> points) {
   final recorder = ui.PictureRecorder();
   final canvas = Canvas(recorder, _canvasCullRect)..scale(28 / 300);
 
-  canvas.drawRRect(const Rect.fromLTWH(0, 0, 28, 28) as ui.RRect, _bgPaint);
+  canvas.drawRect(const Rect.fromLTWH(0, 0, 28, 28), _bgPaint);
 
   for (int i = 0; i < points.length - 1; i++) {
     if (points[i] != null && points[i + 1] != null) {
