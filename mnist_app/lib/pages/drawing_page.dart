@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:mnist_app/dl_model/classifier.dart';
 
@@ -9,8 +10,9 @@ class DrawPage extends StatefulWidget {
 }
 
 class _DrawPageState extends State<DrawPage> {
-  Classifier classifier = Classifier();
+  Classifier _classifier = Classifier();
   List<Offset> points = [];
+  final pointMode = ui.PointMode.points;
   int digit = -1;
 
   @override
@@ -21,9 +23,10 @@ class _DrawPageState extends State<DrawPage> {
         backgroundColor: Colors.black,
         child: Icon(Icons.close),
         onPressed: () {
-          points.clear();
-          digit = -1;
-          setState(() {});
+          setState(() {
+            points.clear();
+            digit = -1;
+          });
         },
       ),
       appBar: AppBar(
@@ -55,18 +58,23 @@ class _DrawPageState extends State<DrawPage> {
               child: GestureDetector(
                 onPanUpdate: (DragUpdateDetails details) {
                   Offset _localPosition = details.localPosition;
-                  setState(() {
-                    if (_localPosition.dx >= 0 &&
-                        _localPosition.dx <= 300 &&
-                        _localPosition.dy >= 0 &&
-                        _localPosition.dy <= 300) points.add(_localPosition);
-                  });
+                  setState(
+                    () {
+                      if (_localPosition.dx >= 0 &&
+                          _localPosition.dx <= 300 &&
+                          _localPosition.dy >= 0 &&
+                          _localPosition.dy <= 300) {
+                        setState(() {
+                          points.add(_localPosition);
+                        });
+                      }
+                    },
+                  );
                 },
                 onPanEnd: (DragEndDetails details) async {
-                  // ignore: null_check_always_fails
-                  // points.add(null);
+                  points.add(Offset(-1, -1));
                   points.add(const Offset(-1, -1));
-                  digit = await classifier.classifyDrawing(points);
+                  digit = await _classifier.classifyDrawing(points);
                   setState(() {});
                 },
                 child: CustomPaint(
@@ -83,7 +91,7 @@ class _DrawPageState extends State<DrawPage> {
               height: 20,
             ),
             Text(digit == -1 ? "" : "$digit",
-                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 60, fontWeight: FontWeight.bold)),
           ],
         ),
       ),
