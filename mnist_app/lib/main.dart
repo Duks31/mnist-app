@@ -3,6 +3,8 @@ import 'package:mnist_app/pages/drawing_page.dart';
 
 
 void main() {
+  
+  
   runApp(MyApp());
 }
 
