@@ -1,4 +1,4 @@
-package com.example.mnist_app
+package com.mnistapp
 
 import io.flutter.embedding.android.FlutterActivity
 

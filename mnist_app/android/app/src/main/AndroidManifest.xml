@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mnist_app">
+    package="com.mnistapp">
    <application
-        android:label="mnist_app"
+        android:label="mnistapp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
