@@ -4,12 +4,15 @@
 <h2> Desription </h2>
 
 <h4> MNIST overview </h4>
-<p align="justify"> Your Text 
+
+<p align="justify" >
+
 [MNIST](https://en.wikipedia.org/wiki/MNIST_database) is a classic machine learning dataset that is often referred to as the "Hello World" of machine learning. It consists of a large set of handwritten digits, which are labeled with their corresponding numerical values.
 
-The goal of machine learning models trained on the MNIST dataset is to correctly classify each digit image into its corresponding numerical value (0-9). This is a classification task, and various machine learning algorithms and techniques can be used to accomplish this.</p>
+The goal of machine learning models trained on the MNIST dataset is to correctly classify each digit image into its corresponding numerical value (0-9). This is a classification task, and various machine learning algorithms and techniques can be used to accomplish this.
 
 <h4> Classifying MNIST Digits with Neural Networks </h4>
+
 One popular approach to solving the MNIST classification task is by using neural networks. Neural networks are a type of machine learning algorithm that are modeled after the structure of the human brain. They consist of interconnected layers of artificial neurons, which can be trained to learn patterns in the input data.
  
 In the case of the MNIST dataset, neural networks can be used to learn the features of the handwritten digits and to classify them into their corresponding numerical values. This is done by feeding the pixel values of each digit image into the neural network as input, and then using the output of the network to predict the digit value.
@@ -41,4 +44,4 @@ when installing the apk into your mobile you bypass all the check that are given
 
 This project inspired by [Aladdin Persson](https://github.com/aladdinpersson) in his [video](https://www.youtube.com/watch?v=Yla6MqEePh8)
 
-
+</p>
