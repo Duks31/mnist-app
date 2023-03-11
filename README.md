@@ -1,6 +1,5 @@
 # mnist-app
-![8 test photo](https://github.com/Duks31/mnist-app/blob/master/test_photos/eight.png) ![5 test photo](https://github.com/Duks31/mnist-app/blob/master/test_photos/five.png) ![2 test photo](https://github.com/Duks31/mnist-app/blob/master/test_photos/two.png)
-
+![8 test photo](https://github.com/Duks31/mnist-app/blob/master/test_photos/eight.png)
 
 <h2> Desription </h2>
 
