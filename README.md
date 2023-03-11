@@ -5,8 +5,6 @@
 
 <h4> MNIST overview </h4>
 
-<p align="justify" >
-
 [MNIST](https://en.wikipedia.org/wiki/MNIST_database) is a classic machine learning dataset that is often referred to as the "Hello World" of machine learning. It consists of a large set of handwritten digits, which are labeled with their corresponding numerical values.
 
 The goal of machine learning models trained on the MNIST dataset is to correctly classify each digit image into its corresponding numerical value (0-9). This is a classification task, and various machine learning algorithms and techniques can be used to accomplish this.
@@ -44,4 +42,3 @@ when installing the apk into your mobile you bypass all the check that are given
 
 This project inspired by [Aladdin Persson](https://github.com/aladdinpersson) in his [video](https://www.youtube.com/watch?v=Yla6MqEePh8)
 
-</p>
