@@ -38,7 +38,8 @@ Please note that the app I created using the MNIST model is currently only suppo
 
 when installing the apk into your mobile you bypass all the check that are given by google play protect and allow install.
 
-<h2>Bugs and Model Accuracy</>
+<h2>Bugs and Model Accuracy</h2>
+
 I am certainly aware that the app has some bugs (eg when drawing some numbers), also the model accuracy is not so high, so there may be times where what you draw isnt what is being predicted.
 
 <h2> Acknowledgement </h2>
