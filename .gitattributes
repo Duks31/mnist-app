@@ -1,4 +1,4 @@
 *.dart linguist-detectable=true 
 *.flutter linguist-detectable=true
 *.PureBasic linguist-detectable=false
-*.pb-text
+*.pb linguist-language=Protobuf
