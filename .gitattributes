@@ -1,4 +1,6 @@
 *.dart linguist-detectable=true 
 *.flutter linguist-detectable=true
 *.PureBasic linguist-detectable=false
+*.c++ linguist-detectable=false
+*.cmake linguist-detectable=false
 *.pb linguist-language=Protobuf
