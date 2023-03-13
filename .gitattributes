@@ -1,6 +1,8 @@
 *.dart linguist-detectable=true 
 *.flutter linguist-detectable=true
 *.PureBasic linguist-detectable=false
-*.c++ linguist-detectable=false
-*.cmake linguist-detectable=false
 *.pb linguist-language=Protobuf
+*.cpp linguist-generated=true 
+*.h linguist-generated=true 
+*.cmake linguist-generated=true 
+CMakeLists.txt linguist-generated=true
