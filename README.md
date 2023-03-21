@@ -36,7 +36,7 @@ The app I created using the trained MNIST model has a key feature, it allows use
 
 Please note that the app I created using the MNIST model is currently only supported on Android devices. If you have an iOS device, I apologize for the inconvenience and encourage you to explore alternative apps or solutions for digit recognition.
 
-when installing the apk into your mobile you bypass all the check that are given by google play protect and allow install.
+When installing the apk into your mobile you bypass all the check that are given by google play protect and allow install.
 
 <h2>Bugs and Model Accuracy</h2>
 
