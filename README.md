@@ -26,7 +26,7 @@ In my case, I used the trained MNIST model to create a mobile app using the Flut
 This integration of the MNIST model into a Flutter app is a great example of how machine learning can be used to enhance the functionality of real-world applications. By leveraging the power of neural networks and the flexibility of Flutter, it was possible to create a unique and engaging user experience that wouldn't have been possible with traditional programming techniques alone.
 
 
-<h2> Features </h2>
+<h2> Features</h2>
 
 The app I created using the trained MNIST model has a key feature, it allows users to draw their own handwritten digits on the screen using their finger or a stylus. The app then uses the trained model to classify the digit and display the predicted numerical value on the screen.
 
