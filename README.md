@@ -1,5 +1,5 @@
 # mnist-app
-![8 test photo](https://github.com/Duks31/mnist-app/blob/master/test_photos/eight.png)
+![8 test photo](test_photos\eight.png)
 
 <h2> Desription </h2>
 
@@ -26,17 +26,17 @@ In my case, I used the trained MNIST model to create a mobile app using the Flut
 This integration of the MNIST model into a Flutter app is a great example of how machine learning can be used to enhance the functionality of real-world applications. By leveraging the power of neural networks and the flexibility of Flutter, it was possible to create a unique and engaging user experience that wouldn't have been possible with traditional programming techniques alone.
 
 
-<h2> Features</h2>
+<h2> Features </h2>
 
 The app I created using the trained MNIST model has a key feature, it allows users to draw their own handwritten digits on the screen using their finger or a stylus. The app then uses the trained model to classify the digit and display the predicted numerical value on the screen.
 
 <h2> Installation </h2>
 
-[click to download minstapp](https://github.com/Duks31/mnist-app/raw/master/mnist_app/apk/app-release.apk)
+[click to download minstapp](https://github.com/Duks31/mnist-app/releases/tag/v0.1.0)
 
 Please note that the app I created using the MNIST model is currently only supported on Android devices. If you have an iOS device, I apologize for the inconvenience and encourage you to explore alternative apps or solutions for digit recognition.
 
-When installing the apk into your mobile you bypass all the check that are given by google play protect and allow install.
+when installing the apk into your mobile you bypass all the check that are given by google play protect and allow install.
 
 <h2>Bugs and Model Accuracy</h2>
 
