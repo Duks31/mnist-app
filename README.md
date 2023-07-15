@@ -1,5 +1,5 @@
 # mnist-app
-![8 test photo](\test_photos\eight.png)
+![8 test photo](/test_photos/eight.png)
 
 <h2> Desription </h2>
 
@@ -12,7 +12,7 @@ The goal of machine learning models trained on the MNIST dataset is to correctly
 <h4> Classifying MNIST Digits with Neural Networks </h4>
 
 One popular approach to solving the MNIST classification task is by using neural networks. Neural networks are a type of machine learning algorithm that are modeled after the structure of the human brain. They consist of interconnected layers of artificial neurons, which can be trained to learn patterns in the input data.
- 
+
 In the case of the MNIST dataset, neural networks can be used to learn the features of the handwritten digits and to classify them into their corresponding numerical values. This is done by feeding the pixel values of each digit image into the neural network as input, and then using the output of the network to predict the digit value.
 
 Neural networks can be trained using a variety of techniques, such as backpropagation, stochastic gradient descent, and convolutional neural networks (CNNs). CNNs, in particular, have been found to be highly effective for image classification tasks like MNIST.
@@ -24,7 +24,6 @@ After training a neural network on the MNIST dataset, the resulting model can be
 In my case, I used the trained MNIST model to create a mobile app using the Flutter framework. The app allows users to draw their own handwritten digits on the screen, and then uses the trained model to classify the digit and display the result.
 
 This integration of the MNIST model into a Flutter app is a great example of how machine learning can be used to enhance the functionality of real-world applications. By leveraging the power of neural networks and the flexibility of Flutter, it was possible to create a unique and engaging user experience that wouldn't have been possible with traditional programming techniques alone.
-
 
 <h2> Features </h2>
 
@@ -45,4 +44,3 @@ I am certainly aware that the app has some bugs (eg when drawing some numbers), 
 <h2> Acknowledgement </h2>
 
 This project inspired by [Aladdin Persson](https://github.com/aladdinpersson) in his [video](https://www.youtube.com/watch?v=Yla6MqEePh8)
-
