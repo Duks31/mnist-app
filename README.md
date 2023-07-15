@@ -1,5 +1,5 @@
 # mnist-app
-![8 test photo](test_photos\eight.png)
+![8 test photo](\test_photos\eight.png)
 
 <h2> Desription </h2>
 
